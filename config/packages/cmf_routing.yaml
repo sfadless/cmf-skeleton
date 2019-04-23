@@ -1,0 +1,14 @@
+cmf_routing:
+    chain:
+        replace_symfony_router: true
+        routers_by_id:
+            cmf_routing.dynamic_router: 200
+            router.default: 100
+
+    dynamic:
+        enabled: true
+        default_controller: App\Controller\PageController::page
+        persistence:
+            orm:
+                enabled: true
+                route_class: App\Entity\Route

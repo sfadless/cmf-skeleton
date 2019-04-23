@@ -1,0 +1,19 @@
+imports:
+    - { resource: cmf/admin.yaml }
+    - { resource: cmf/templates.yaml }
+
+parameters:
+    locale: 'ru'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php,Application,Admin}'
+
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
