@@ -10,3 +10,8 @@ services:
         arguments: [~, App\Entity\Content, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Контент, group: Контент, icon: '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>' }
+
+    App\Admin\RouteAdmin:
+        arguments: [~, App\Entity\Route, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
