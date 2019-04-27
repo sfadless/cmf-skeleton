@@ -24,9 +24,14 @@ doctrine:
             App:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
+                dir: '%kernel.project_dir%/src/App/Entity'
                 prefix: 'App\Entity'
-                alias: App
+
+            Cmf:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Cmf/Entity'
+                prefix: 'Sfadless\Cmf\Entity'
 
             ApplicationSonataMediaBundle: ~
             SonataMediaBundle: ~

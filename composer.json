@@ -18,8 +18,7 @@
         "symfony/framework-bundle": "4.2.*",
         "symfony/orm-pack": "^1.0",
         "symfony/web-server-bundle": "4.2.*",
-        "symfony/yaml": "4.2.*",
-        "tilleuls/ckeditor-sonata-media-bundle": "^1.0"
+        "symfony/yaml": "4.2.*"
     },
     "config": {
         "preferred-install": {
@@ -29,7 +28,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/App",
+            "Sfadless\\Cmf\\": "src/Cmf"
         }
     },
     "autoload-dev": {

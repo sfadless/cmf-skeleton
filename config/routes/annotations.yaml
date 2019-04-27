@@ -1,3 +1,7 @@
 controllers:
-    resource: ../../src/Controller/
+    resource: ../../src/App/Controller/
+    type: annotation
+
+cmf:
+    resource: ../../src/Cmf/Controller/
     type: annotation

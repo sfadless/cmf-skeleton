@@ -1,1 +1,6 @@
-<script>window.parent.CKEDITOR.tools.callFunction({{ app.request.get('CKEditorFuncNum')|escape('js') }}, "{% path object, 'reference'|escape('js') %}");</script>
+{#<script>window.parent.CKEDITOR.tools.callFunction({{ app.request.get('CKEditorFuncNum')|escape('js') }}, "{% path object, 'reference'|escape('js') %}");</script>#}
+{
+    "uploaded" : 1,
+    'fileName' : {{ object.getName }},
+    'url' : {{ admin.get(object.getProviderName).generatePublicUrl(object, 'reference') }}
+}

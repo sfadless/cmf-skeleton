@@ -6,11 +6,11 @@ security:
             - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT
 
     encoders:
-        App\Entity\User: bcrypt
+        Sfadless\Cmf\Entity\User: bcrypt
 
     providers:
         users:
-            id: App\Security\UserProvider
+            id: Sfadless\Cmf\Security\UserProvider
 
     firewalls:
         # Disabling the security for the web debug toolbar, the profiler and Assetic.
@@ -32,7 +32,7 @@ security:
             anonymous:          true
             guard:
                 authenticators:
-                    - App\Security\AdminLoginAuthenticator
+                    - Sfadless\Cmf\Security\AdminLoginAuthenticator
         main:
             anonymous: ~
 

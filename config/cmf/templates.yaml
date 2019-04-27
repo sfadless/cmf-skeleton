@@ -1,1 +1,3 @@
 parameters:
+    cmf.page.templates:
+        - { alias: index, name: 'Главная страница', path: 'index.twig' }

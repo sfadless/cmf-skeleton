@@ -12,6 +12,13 @@ sonata_media:
             formats:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
+        uploads:
+            providers:
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+            formats:
+                small: { width: 100 , quality: 100}
+                big:   { width: 500 , quality: 100}
 
     cdn:
         server:
@@ -24,6 +31,6 @@ sonata_media:
             create: false
 
     class:
-        media: App\Application\Sonata\MediaBundle\Entity\Media
-        gallery: App\Application\Sonata\MediaBundle\Entity\Gallery
-        gallery_has_media: App\Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+        media: Sfadless\Cmf\Application\Sonata\MediaBundle\Entity\Media
+        gallery: Sfadless\Cmf\Application\Sonata\MediaBundle\Entity\Gallery
+        gallery_has_media: Sfadless\Cmf\Application\Sonata\MediaBundle\Entity\GalleryHasMedia

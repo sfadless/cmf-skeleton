@@ -10,10 +10,17 @@ services:
         autowire: true
         autoconfigure: true
 
-    App\:
-        resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php,Application,Admin}'
-
     App\Controller\:
-        resource: '../src/Controller'
+        resource: '../src/App/Controller'
         tags: ['controller.service_arguments']
+
+    Sfadless\Cmf\Controller\:
+        resource: '../src/Cmf/Controller'
+        tags: ['controller.service_arguments']
+
+    Sfadless\Cmf\Security\AdminLoginAuthenticator: ~
+    Sfadless\Cmf\Security\UserProvider: ~
+    Sfadless\Cmf\DependencyInjection\Compiler\ReplaceServicesPass: ~
+    Sfadless\Cmf\Routing\RouteProvider:
+        bind:
+            $em: '@doctrine.orm.entity_manager'

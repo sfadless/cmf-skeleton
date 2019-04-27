@@ -7,8 +7,9 @@ cmf_routing:
 
     dynamic:
         enabled: true
-        default_controller: App\Controller\PageController::page
+        default_controller: Sfadless\Cmf\Controller\PageController::page
+        route_provider_service_id: Sfadless\Cmf\Routing\RouteProvider
         persistence:
             orm:
                 enabled: true
-                route_class: App\Entity\Route
+                route_class: Sfadless\Cmf\Entity\Content

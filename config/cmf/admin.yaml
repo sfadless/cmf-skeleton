@@ -1,17 +1,40 @@
 parameters:
 
 services:
-    App\Admin\TagAdmin:
-        arguments: [~, App\Entity\Tag, ~]
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Sfadless\Cmf\Admin\TagAdmin:
+        arguments: [~, Sfadless\Cmf\Entity\Tag, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Теги, group: Контент, icon: '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>' }
 
-    App\Admin\ContentAdmin:
-        arguments: [~, App\Entity\Content, ~]
+    Sfadless\Cmf\Admin\ContentAdmin:
+        arguments: [~, Sfadless\Cmf\Entity\Content, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Контент, group: Контент, icon: '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>' }
 
-    App\Admin\RouteAdmin:
-        arguments: [~, App\Entity\Route, ~]
+    Sfadless\Cmf\Admin\RouteAdmin:
+        arguments: [~, Sfadless\Cmf\Entity\Route, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+
+    Sfadless\Cmf\Admin\MediaAdminExtension:
+        tags:
+            - { name: sonata.admin.extension, target: sonata.media.admin.media }
+
+    Sfadless\Cmf\Admin\BlockAdmin:
+        arguments: [~, Sfadless\Cmf\Entity\Block, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Блоки, group: 'Конструктор страниц', icon: '<i class="fa fa-cogs" aria-hidden="true"></i>' }
+
+    Sfadless\Cmf\Admin\RegionAdmin:
+        arguments: [~, Sfadless\Cmf\Entity\Region, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Регионы, group: 'Конструктор страниц', icon: '<i class="fa fa-cogs" aria-hidden="true"></i>' }
+
+    Sfadless\Cmf\Admin\RegionHasBlockAdmin:
+        arguments: [~, Sfadless\Cmf\Entity\RegionHasBlock, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false  }
