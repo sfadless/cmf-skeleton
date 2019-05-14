@@ -14,6 +14,8 @@ services:
         arguments: [~, Sfadless\Cmf\Entity\Content, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Контент, group: Контент, icon: '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>' }
+        calls:
+            - [setTemplate, [edit, 'admin/content_edit.twig']]
 
     Sfadless\Cmf\Admin\RouteAdmin:
         arguments: [~, Sfadless\Cmf\Entity\Route, ~]
@@ -25,9 +27,14 @@ services:
             - { name: sonata.admin.extension, target: sonata.media.admin.media }
 
     Sfadless\Cmf\Admin\BlockAdmin:
-        arguments: [~, Sfadless\Cmf\Entity\Block, ~]
+        arguments: [~, Sfadless\Cmf\Entity\Block, Sfadless\Cmf\Controller\Admin\BlockAdminController]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Блоки, group: 'Конструктор страниц', icon: '<i class="fa fa-cogs" aria-hidden="true"></i>' }
+
+    Sfadless\Cmf\Admin\BlockContentAdmin:
+        arguments: [~, Sfadless\Cmf\Entity\BlockContent, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
 
     Sfadless\Cmf\Admin\RegionAdmin:
         arguments: [~, Sfadless\Cmf\Entity\Region, ~]
@@ -38,3 +45,20 @@ services:
         arguments: [~, Sfadless\Cmf\Entity\RegionHasBlock, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false  }
+
+    prodigious_sonata_menu.admin.menu:
+        class: '%sonata_menu.admins.menu%'
+        arguments: [~, '%sonata_menu.entity.menu%', ProdigiousSonataMenuBundle:Menu]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: config.label_menu, on_top: true, label_catalogue: ProdigiousSonataMenuBundle, icon: '<i class="fa fa-bars" aria-hidden="true"></i>' }
+        calls:
+            - [ setTranslationDomain, [ProdigiousSonataMenuBundle]]
+            - [ addChild, ['@prodigious_sonata_menu.admin.menu_item', 'menu']]
+
+    prodigious_sonata_menu.admin.menu_item:
+        class: '%sonata_menu.admins.menu_item%'
+        arguments: [~, '%sonata_menu.entity.menu_item%', ProdigiousSonataMenuBundle:MenuItem, '%sonata_menu.entity.menu%']
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: config.label_menu_item, group: config.label_menu, show_in_dashboard: false, label_catalogue: ProdigiousSonataMenuBundle }
+        calls:
+            - [ setTranslationDomain, [ProdigiousSonataMenuBundle]]

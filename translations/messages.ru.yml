@@ -1,0 +1,17 @@
+# messages.en.yml
+config.label_dashboard: Dashboard
+config.label_menu: Меню
+config.label_name: Название
+config.label_modify: Редактировать
+config.label_menu_items: Пункты меню
+config.label_menu_item: Пункт меню
+config.label_url: URL
+config.label_class_attribute: Class
+config.label_target: Новая вкладка
+config.label_enabled: Включен
+config.label_page: Страница
+config.label_parent: Родитель
+config.label_children: Подменю
+config.label_menu_link: Ссылка
+config.label_add_menu_item: Добавить пункт
+config.label_select: Выбрать

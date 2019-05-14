@@ -1,0 +1,30 @@
+# SonataMenuBundle.en.yml
+config.label_dashboard: Dashboard
+config.label_menu: Меню
+config.label_menus: Меню
+config.label_name: Название
+config.label_add: Добавить
+config.label_update: Обновить
+config.label_add_item: Добавить пункт
+config.label_modify: Редактировать
+config.label_delete: Удалить
+config.label_menu_items: Пункты меню
+config.label_menu_item: Пункт меню
+config.label_url: ссылка
+config.label_custom_url: Конкретная ссылка
+config.label_class_attribute: Аттрибут класса
+config.label_target: Новая вкладка
+config.label_enabled: Включить
+config.label_page: Страница
+config.label_parent: Родитель
+config.label_children: Подменю
+config.label_menu_link: Ссылка
+config.label_add_menu_item: Добавить пункт
+config.label_select: Выберите
+config.label_manager_order: Manage the order
+config.label_disabled: Отключить
+config.label_action: Действие
+config.label_saved: Сохранено
+config.label_error: Это ошибка
+config.label_id: ID
+config.label_alias: Алиас

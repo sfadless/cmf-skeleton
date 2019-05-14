@@ -1,0 +1,15 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('admin/css/panel.css') }}">
+<div class="admin-wrapper-empty">
+    <div class="admin-wrapper">
+        <a href="{{ path('admin_sfadless_cmf_content_edit', {"id" : content.id}) }}"><i class="fas fa-edit"></i>&nbsp;&nbsp;Редактировать страницу</a>
+        <a href="{{ path('admin_sfadless_cmf_content_create') }}"><i class="fas fa-plus"></i>&nbsp;&nbsp;Добавить страницу</a>
+{#        <div class="admin-panel__list">#}
+{#            Добавить контент&nbsp;&nbsp;<i class="fas fa-chevron-down"></i>#}
+{#            <ul>#}
+{#                <li><a href="#"><i class="fas fa-chevron-right"></i>&nbsp;&nbsp;Новость</a></li>#}
+{#            </ul>#}
+{#        </div>#}
+    </div>
+</div>

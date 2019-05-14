@@ -1,0 +1,12 @@
+{% extends '@SonataAdmin/CRUD/edit.html.twig' %}
+
+{% block form %}
+    {% if object.id is not null %}
+        <div class="panel">
+            <div class="panel-heading">
+                <a class="sonata-action-element" href="{{ object.route }}"><i class="fa fa-file-text" aria-hidden="true"></i> На страницу</a>
+            </div>
+        </div>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

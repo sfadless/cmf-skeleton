@@ -39,6 +39,58 @@ class Block
     private $template;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="type", nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var BlockContent
+     *
+     * @ORM\OneToMany(targetEntity="Sfadless\Cmf\Entity\BlockContent", mappedBy="block")
+     */
+    private $content;
+
+    /**
+     * @return BlockContent
+     */
+    public function getContent(): BlockContent
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param BlockContent $content
+     * @return Block
+     */
+    public function setContent(BlockContent $content): Block
+    {
+        $this->content = $content;
+        $this->content->setBlock($this);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return Block
+     */
+    public function setType(string $type): Block
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getCode(): ?string

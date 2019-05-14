@@ -23,4 +23,5 @@ return [
     Sfadless\Cmf\Application\Sonata\MediaBundle\ApplicationSonataMediaBundle::class => ['all' => true],
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true],
+    Prodigious\Sonata\MenuBundle\ProdigiousSonataMenuBundle::class => ['all' => true],
 ];

@@ -8,6 +8,11 @@
     </head>
     <body>
         {% block body %}
+            {% block admin_panel %}
+                {% if app.user and app.user.hasRole('ROLE_ADMIN') %}
+                    {% include 'admin/toolbar.twig' %}
+                {% endif %}
+            {% endblock %}
             {% block header %}{% endblock %}
             {% block content %}{% endblock %}
             {% block footer %}{% endblock %}

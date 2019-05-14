@@ -5,6 +5,7 @@ namespace Sfadless\Cmf\Admin;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
@@ -14,11 +15,28 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
  */
 class BlockAdmin extends AbstractAdmin
 {
+    protected $baseRoutePattern = 'block';
+
+//    protected function configureRoutes(RouteCollection $collection)
+//    {
+//        $collection->add('content', $this->getRouterIdParameter() . '/content');
+//    }
+
     public function configureListFields(ListMapper $list)
     {
         $list
             ->addIdentifier('code', null, ['label' => 'Символьный код'])
             ->addIdentifier('name', null, ['label' => 'Название'])
+            ->add('_action', null, [
+                'label' => 'Действия',
+                'actions' => [
+                    'delete' => [],
+                    'content' => [
+                        'route' => 'content',
+                        'template' => '/admin/CRUD/content.twig'
+                    ]
+                ]
+            ])
         ;
     }
 
@@ -28,6 +46,7 @@ class BlockAdmin extends AbstractAdmin
             ->add('code', TextType::class, ['label' => 'Символьный код'])
             ->add('name', TextType::class, ['label' => 'Название'])
             ->add('template', TextType::class, ['label' => 'Шаблон', 'required' => false])
+            ->add('type')
         ;
     }
 }

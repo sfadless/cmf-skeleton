@@ -1,0 +1,7 @@
+prodigious_sonata_menu:
+    entities:
+        menu: Sfadless\Cmf\Entity\Menu\Menu
+        menu_item: Sfadless\Cmf\Entity\Menu\MenuItem
+    admins:
+        menu: Sfadless\Cmf\Admin\Menu\MenuAdmin
+        menu_item: Sfadless\Cmf\Admin\Menu\MenuItemAdmin
