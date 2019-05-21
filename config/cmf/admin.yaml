@@ -11,7 +11,7 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Теги, group: Контент, icon: '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>' }
 
     Sfadless\Cmf\Admin\ContentAdmin:
-        arguments: [~, Sfadless\Cmf\Entity\Content, ~]
+        arguments: [~, Sfadless\Cmf\Entity\Content, Sfadless\Cmf\Controller\Admin\ContentCRUDController]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Контент, group: Контент, icon: '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>' }
         calls:

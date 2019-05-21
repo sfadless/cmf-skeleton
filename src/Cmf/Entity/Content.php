@@ -66,10 +66,63 @@ class Content
      */
     private $createdAt;
 
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="\Sfadless\Cmf\Entity\Content", mappedBy="parent")
+     */
+    private $children;
+
+    /**
+     * @var Content
+     *
+     * @ORM\ManyToOne(targetEntity="\Sfadless\Cmf\Entity\Content", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    private $parent;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="title", nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="description", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="keywords", nullable=true)
+     */
+    private $keywords;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean", name="show_in_sitemap")
+     */
+    private $showInSitemap;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->createdAt = new DateTime();
+        $this->children = new ArrayCollection();
+        $this->position = 1;
+        $this->showInSitemap = true;
     }
 
     /**
@@ -178,6 +231,122 @@ class Content
     public function setName(string $name): Content
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return Content
+     */
+    public function getParent(): ?Content
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param Content $parent
+     * @return Content
+     */
+    public function setParent(Content $parent): Content
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param int $position
+     * @return Content
+     */
+    public function setPosition(int $position): Content
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getChildren(): Collection
+    {
+        return $this->children;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     * @return Content
+     */
+    public function setTitle(string $title): Content
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Content
+     */
+    public function setDescription(string $description): Content
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getKeywords(): ?string
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * @param string $keywords
+     * @return Content
+     */
+    public function setKeywords(string $keywords): Content
+    {
+        $this->keywords = $keywords;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isShowInSitemap(): bool
+    {
+        return $this->showInSitemap;
+    }
+
+    /**
+     * @param bool $showInSitemap
+     * @return Content
+     */
+    public function setShowInSitemap(bool $showInSitemap): Content
+    {
+        $this->showInSitemap = $showInSitemap;
         return $this;
     }
 }

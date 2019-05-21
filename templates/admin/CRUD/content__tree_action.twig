@@ -1,0 +1,12 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block sonata_page_content %}
+    <div id="tree"></div>
+    <div id="data-container" data-content="{{ contents }}"></div>
+    <link rel="stylesheet" href="/admin/style.css">
+    {{ encore_entry_script_tags('admin/app') }}
+{% endblock %}
