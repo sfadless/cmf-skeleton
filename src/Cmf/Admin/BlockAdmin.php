@@ -3,6 +3,7 @@
 namespace Sfadless\Cmf\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
@@ -46,7 +47,14 @@ class BlockAdmin extends AbstractAdmin
             ->add('code', TextType::class, ['label' => 'Символьный код'])
             ->add('name', TextType::class, ['label' => 'Название'])
             ->add('template', TextType::class, ['label' => 'Шаблон', 'required' => false])
-            ->add('type')
+        ;
+    }
+
+    public function configureDatagridFilters(DatagridMapper $filter)
+    {
+        $filter
+            ->add('code', null, ['label' => 'Символьный код'])
+            ->add('name', null, ['label' => 'Название'])
         ;
     }
 }

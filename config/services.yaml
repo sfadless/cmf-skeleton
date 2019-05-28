@@ -1,6 +1,7 @@
 imports:
     - { resource: cmf/admin.yaml }
     - { resource: cmf/templates.yaml }
+    - { resource: cmf/block.yaml }
 
 parameters:
     locale: 'ru'

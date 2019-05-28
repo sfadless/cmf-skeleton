@@ -15,34 +15,34 @@ use Sonata\AdminBundle\Controller\CRUDController;
  */
 class ContentCRUDController extends CRUDController
 {
-    public function listAction()
-    {
-        $contents = $this->getDoctrine()->getRepository(Content::class)->findAll();
-
-//        $items = [];
-//        foreach ($contents as $content) {
-//            $item = [
-//                'id' => $content->getId(),
-//                'title' => $content->getName()
-//            ];
+//    public function listAction()
+//    {
+//        $contents = $this->getDoctrine()->getRepository(Content::class)->findAll();
 //
-//            if ($content->getParent()) {
-//                $item['parent'] = $content->getParent()->getId();
-//            }
-//
-//            $items[] = $item;
-//        }
-        $ar = $this->getTreeContent($contents);
-//        dump($items);
-//        $ar = [
-//            ['id' => 1, 'title' => 'Главная'],
-//            ['id' => 2, 'title' => 'Статьи', 'children' => [
-//                ['id' => 3, 'title' => 'Статья 1']
-//            ]],
-//            ['id' => 3, 'title' => 'Контакты']
-//        ];
-        return $this->renderWithExtraParams('admin/CRUD/content__tree_action.twig', ['contents' => json_encode($ar)]);
-    }
+////        $items = [];
+////        foreach ($contents as $content) {
+////            $item = [
+////                'id' => $content->getId(),
+////                'title' => $content->getName()
+////            ];
+////
+////            if ($content->getParent()) {
+////                $item['parent'] = $content->getParent()->getId();
+////            }
+////
+////            $items[] = $item;
+////        }
+//        $ar = $this->getTreeContent($contents);
+////        dump($items);
+////        $ar = [
+////            ['id' => 1, 'title' => 'Главная'],
+////            ['id' => 2, 'title' => 'Статьи', 'children' => [
+////                ['id' => 3, 'title' => 'Статья 1']
+////            ]],
+////            ['id' => 3, 'title' => 'Контакты']
+////        ];
+//        return $this->renderWithExtraParams('admin/CRUD/content__tree_action.twig', ['contents' => json_encode($ar)]);
+//    }
 
     private function getTreeContent(array $contents)
     {

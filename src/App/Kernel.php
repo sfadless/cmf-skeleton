@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Sfadless\Cmf\DependencyInjection\Compiler\BlockContentProviderPass;
 use Sfadless\Cmf\DependencyInjection\Compiler\ReplaceServicesPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -43,6 +44,7 @@ class Kernel extends BaseKernel
         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
 
         $container->addCompilerPass(new ReplaceServicesPass());
+        $container->addCompilerPass(new BlockContentProviderPass());
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes): void

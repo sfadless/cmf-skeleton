@@ -17,6 +17,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
  */
 class RegionAdmin extends AbstractAdmin
 {
+    protected $baseRoutePattern = 'region';
+
     /**
      * @var EntityManagerInterface
      */

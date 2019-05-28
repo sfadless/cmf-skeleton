@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Sfadless\Cmf\Block\ContentProvider\ContentProviderManager: ~
+
+    Sfadless\Cmf\Block\ContentProvider\CKEditorContentProvider:
+        tags:
+           - { name: !php/const Sfadless\Cmf\DependencyInjection\Compiler\BlockContentProviderPass::BLOCK_CONTENT_PROVIDER_TAG, code: !php/const Sfadless\Cmf\Block\ContentProvider\CKEditorContentProvider::CODE }
