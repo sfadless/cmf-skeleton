@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
+        "ext-intl": "*",
         "friendsofsymfony/ckeditor-bundle": "^2.1",
         "prodigious/sonata-menu-bundle": "^3.0",
         "sonata-project/admin-bundle": "^3.48",

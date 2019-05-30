@@ -2,6 +2,7 @@
 
 namespace Sfadless\Cmf\Block\ContentProvider;
 
+use Sfadless\Cmf\Block\Exception\BlockContentProviderNotFoundException;
 use Sfadless\Cmf\Block\Exception\DuplicateBlockContentProviderCodeException;
 
 /**
@@ -11,6 +12,9 @@ use Sfadless\Cmf\Block\Exception\DuplicateBlockContentProviderCodeException;
  */
 class ContentProviderManager
 {
+    /**
+     * @var BlockContentProviderInterface[]
+     */
     private $providers = [];
 
     /**
@@ -29,11 +33,25 @@ class ContentProviderManager
         $this->providers[$code] = $provider;
     }
 
-    public function get($code)
+    /**
+     * @param $code
+     * @return BlockContentProviderInterface
+     * @throws BlockContentProviderNotFoundException
+     */
+    public function get($code) : BlockContentProviderInterface
     {
+        if (! isset($this->providers[$code])) {
+            throw new BlockContentProviderNotFoundException(
+                sprintf("Content provider with code `%s` does not exist", $code)
+            );
+        }
 
+        return $this->providers[$code];
     }
 
+    /**
+     * @return BlockContentProviderInterface[]
+     */
     public function getAll()
     {
         return $this->providers;

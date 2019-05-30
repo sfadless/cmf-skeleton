@@ -5,11 +5,11 @@ namespace Sfadless\Cmf\Block\Exception;
 use Exception;
 
 /**
- * BlockContentProviderBotFoundException
+ * BlockContentProviderNotFoundException
  *
  * @author Pavel Golikov <pgolikov327@gmail.com>
  */
-class BlockContentProviderBotFoundException extends Exception
+class BlockContentProviderNotFoundException extends Exception
 {
 
 }
